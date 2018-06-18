@@ -118,9 +118,6 @@ class Rest_controller extends CI_Controller {
 				show_404();
 			}
 		}
-		elseif($type == "overtime") {
-			
-		}
 		else {
 			show_404();
 		}
