@@ -122,6 +122,46 @@
 	</div>
 	<!-- end create modal -->
 	
+	<style>
+		#previewAdminList .values { border-bottom:#6BB9F0 solid 2px;padding:5px }
+	</style>
+	<!-- start create modal -->
+	<div id="previewAdminList" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Update Admin Data</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+						<div class="form-group row">
+							<label for="xusername" class="col-sm-12 control-label">Username*</label>
+							<div class="col-sm-12">
+								<div class="values" id="username"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="xfullname" class="col-sm-12 control-label">Full Name*</label>
+							<div class="col-sm-12">
+								<div class="values" id="fullname"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="level" class="col-sm-12 control-label">Level*</label>
+							<div class="col-sm-12">
+								<div class="values" id="level"></div>
+							</div>
+						</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+						<button onclick="$('#editAdminList').modal('show');$('#previewAdminList').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- end create modal -->
+	
 	<!-- start create modal -->
 	<div id="editAdminList" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog">
@@ -229,7 +269,11 @@
 			$('#updateAdminList input#username').val(obj[0].username);
 			$('#updateAdminList input#fullname').val(obj[0].fullname);
 			$('#updateAdminList select#level').val(obj[0].level);
-			$("#editAdminList").modal('show');
+			
+			$('#previewAdminList div#username').text(obj[0].username);
+			$('#previewAdminList div#fullname').text(obj[0].fullname);
+			$('#previewAdminList div#level').text(obj[0].level);
+			$("#previewAdminList").modal('show');
 		});
 		
 	}

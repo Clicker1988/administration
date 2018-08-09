@@ -541,7 +541,7 @@ class Payroll_controller extends CI_Controller {
 				$html .= "<td>$row->reason</td>";
 				$html .= "<td>$row->date_inserted</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record' type='button' onclick=\"fneditLeaveReq('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record' type='button' onclick=\"fneditLeaveReq('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeleteLeaveReq('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}
@@ -586,7 +586,7 @@ class Payroll_controller extends CI_Controller {
 				$html .= "<td>$row->description</td>";
 				$html .= "<td>$row->date_inserted</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record' type='button' onclick=\"fneditLeaveType('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record' type='button' onclick=\"fneditLeaveType('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeleteLeaveType('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}
@@ -664,7 +664,7 @@ class Payroll_controller extends CI_Controller {
 				$html .= "<td>$row->status</td>";
 				$html .= "<td>$row->date_inserted</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record' type='button' onclick=\"fneditPayperiod('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record' type='button' onclick=\"fneditPayperiod('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeletePayperiod('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}
@@ -709,10 +709,10 @@ class Payroll_controller extends CI_Controller {
 			foreach($data as $row) {
 				$html .= "<tr>";
 				$html .= "<td>$row->description</td>";
-				$html .= "<td>$row->created_by</td>";
+				$html .= "<td>$row->created</td>";
 				$html .= "<td>$row->created_date</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record' type='button' onclick=\"fneditTimesheetType('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record' type='button' onclick=\"fneditTimesheetType('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeleteTimesheetType('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}
@@ -757,10 +757,10 @@ class Payroll_controller extends CI_Controller {
 			foreach($data as $row) {
 				$html .= "<tr>";
 				$html .= "<td>$row->description</td>";
-				$html .= "<td>$row->created_by</td>";
+				$html .= "<td>$row->created</td>";
 				$html .= "<td>$row->created_date</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record' type='button' onclick=\"fneditDeductionType('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record' type='button' onclick=\"fneditDeductionType('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeleteDeductionType('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}
@@ -809,10 +809,10 @@ class Payroll_controller extends CI_Controller {
 				$html .= "<td>$row->deduction_type</td>";
 				$html .= "<td>$row->amt</td>";
 				$html .= "<td>$row->description</td>";
-				$html .= "<td>$row->created_by</td>";
+				$html .= "<td>$row->created</td>";
 				$html .= "<td>$row->created_date</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record' type='button' onclick=\"fneditDeductionMaster('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record' type='button' onclick=\"fneditDeductionMaster('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeleteDeductionMaster('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}

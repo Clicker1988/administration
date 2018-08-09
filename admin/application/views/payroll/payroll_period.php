@@ -33,7 +33,7 @@
 									<th>Description</th>
 									<th>Date From</th>
 									<th>Date To</th>
-									<th>Status</th>
+									<th>Active</th>
 									<th>Date Inserted</th>
 									<th>Options</th>
 								</tr>
@@ -95,7 +95,7 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="status" class="col-sm-12 control-label">Status</label>
+							<label for="status" class="col-sm-12 control-label">Active</label>
 							<div class="col-sm-12">
 								<div class="input-group">
 									<select class="form-control" name="status" id="status">
@@ -114,6 +114,51 @@
 						<button type="submit" class="btn btn-danger waves-effect waves-light">Create</button>
 					</div>
 					</form>
+			</div>
+		</div>
+	</div>
+	<!-- end create modal -->
+	<style>
+		#previewPayperiod .values { border-bottom:#6BB9F0 solid 2px;padding:5px }
+	</style>
+	<!-- start create modal -->
+	<div id="previewPayperiod" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Payroll Period</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+						<div class="form-group row">
+							<label for="description" class="col-sm-12 control-label">Description</label>
+							<div class="col-sm-12">
+								<div class='values' id="description"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="date_from" class="col-sm-12 control-label">Date From</label>
+							<div class="col-sm-12">
+								<div class='values' id="date_from"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="date_to" class="col-sm-12 control-label">Date To</label>
+							<div class="col-sm-12">
+								<div class='values' id="date_to"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="status" class="col-sm-12 control-label">Active</label>
+							<div class="col-sm-12">
+								<div class='values' id="status"></div>
+							</div>
+						</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+						<button onclick="$('#editPayperiod').modal('show');$('#previewPayperiod').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -165,7 +210,7 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="status" class="col-sm-12 control-label">Status*</label>
+							<label for="status" class="col-sm-12 control-label">Active*</label>
 							<div class="col-sm-12">
 								<div class="input-group">
 									<select class="form-control" name="status" id="status">
@@ -232,7 +277,13 @@
 			$('#editPayperiod input#date_from').val(obj[0].date_from);
 			$('#editPayperiod input#date_to').val(obj[0].date_to);
 			$('#editPayperiod select#status').val(obj[0].status);
-			$("#editPayperiod").modal('show');
+			$('#previewPayperiod div#description').text(obj[0].description);
+			$('#previewPayperiod div#date_from').text(obj[0].date_from);
+			$('#previewPayperiod div#date_to').text(obj[0].date_to);
+			var status = "";
+			if(obj[0].status == "Y") { status = "Yes"; } else { status = "No"; }
+			$('#previewPayperiod div#status').text(status);
+			$("#previewPayperiod").modal('show');
 		});
 	}
 	

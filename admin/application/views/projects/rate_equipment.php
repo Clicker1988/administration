@@ -246,7 +246,7 @@
 				</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-						<button onclick="$('#editEquipList').modal('show');$('#previewEquipList').modal('hide');" class="btn btn-danger waves-effect waves-light">Update</button>
+						<button onclick="$('#editEquipList').modal('show');$('#previewEquipList').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
 					</div>
 					</form>
 			</div>

@@ -82,6 +82,33 @@
 		</div>
 	</div>
 	<!-- end create modal -->
+	<style>
+		#previewLeaveTypes .values { border-bottom:#6BB9F0 solid 2px;padding:5px }
+	</style>
+	<!-- start create modal -->
+	<div id="previewLeaveTypes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Leave Type</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+						<div class="form-group row">
+							<label for="proj_type" class="col-sm-12 control-label">Leave Type</label>
+							<div class="col-sm-12">
+								<div class='values' id="description"></div>
+							</div>
+						</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+						<button onclick="$('#editLeaveTypes').modal('show');$('#previewLeaveTypes').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- end create modal -->
 	
 	<!-- start create modal -->
 	<div id="editLeaveTypes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -152,7 +179,8 @@
 			var obj = JSON.parse(json);
 			$('#editLeaveTypes input#rowid').val(obj[0].id);
 			$('#editLeaveTypes input#description').val(obj[0].description);
-			$("#editLeaveTypes").modal('show');
+			$('#previewLeaveTypes div#description').text(obj[0].description);
+			$("#previewLeaveTypes").modal('show');
 		});
 		
 	}

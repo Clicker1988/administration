@@ -83,6 +83,33 @@
 		</div>
 	</div>
 	<!-- end create modal -->
+	<style>
+		#previewDeductionTypes .values { border-bottom:#6BB9F0 solid 2px;padding:5px }
+	</style>
+	<!-- start create modal -->
+	<div id="previewDeductionTypes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Deduction Type</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group row">
+						<label for="description" class="col-sm-12 control-label">Deduction Type</label>
+						<div class="col-sm-12">
+							<div class='values' id="description"></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+					<button onclick="$('#editDeductionTypes').modal('show');$('#previewDeductionTypes').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end create modal -->
 	
 	<!-- start create modal -->
 	<div id="editDeductionTypes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -153,7 +180,8 @@
 			var obj = JSON.parse(json);
 			$('#editDeductionTypes input#rowid').val(obj[0].id);
 			$('#editDeductionTypes input#description').val(obj[0].description);
-			$("#editDeductionTypes").modal('show');
+			$('#previewDeductionTypes div#description').text(obj[0].description);
+			$("#previewDeductionTypes").modal('show');
 		});
 		
 	}

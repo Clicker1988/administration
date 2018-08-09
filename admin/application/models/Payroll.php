@@ -207,7 +207,10 @@ class Payroll extends CI_Model {
 	}
 	
 	function get_TimesheetType() {
-		$query = $this->db->query('SELECT * FROM timesheet_type ORDER by created_date');
+		$query = $this->db->query('SELECT a.*,b.fullname as created FROM timesheet_type  a
+									JOIN auth_accounts b
+									ON(a.created_by = b.id)
+									ORDER BY created_date');
 		if($query->num_rows() > 0) {
 			return $query->result();
 		} else {
@@ -244,7 +247,10 @@ class Payroll extends CI_Model {
 	}
 	
 	function get_DeductionType() {
-		$query = $this->db->query('SELECT * FROM deduction_type ORDER by created_date');
+		$query = $this->db->query('SELECT a.*,b.fullname AS created FROM deduction_type a 
+									JOIN auth_accounts b
+									ON(a.created_by = b.id)
+									ORDER BY created_date');
 		if($query->num_rows() > 0) {
 			return $query->result();
 		} else {
@@ -281,9 +287,11 @@ class Payroll extends CI_Model {
 	}
 	
 	function get_DeductionMaster() {
-		$query = $this->db->query('SELECT * FROM deduction_master
+		$query = $this->db->query('SELECT *,fullname as created FROM deduction_master
 									JOIN payroll_period
 									ON(deduction_master.period = payroll_period.id)
+									JOIN auth_accounts
+									ON(deduction_master.id = auth_accounts.id)
 									ORDER BY created_date');
 		if($query->num_rows() > 0) {
 			return $query->result();

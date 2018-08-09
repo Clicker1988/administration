@@ -132,6 +132,51 @@
 		</div>
 	</div>
 	<!-- end create modal -->
+	<style>
+		#previewDeductionMaster .values { border-bottom:#6BB9F0 solid 2px;padding:5px }
+	</style>
+	<!-- start create modal -->
+	<div id="previewDeductionMaster" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Deduction Master</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+						<div class="form-group row">
+							<label for="employee_id" class="col-sm-12 control-label">Employee*</label>
+							<div class="col-sm-12">
+								<div class="values" id="employee_name"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="deduction_type" class="col-sm-12 control-label">Deduction Type*</label>
+							<div class="col-sm-12">
+								<div class="values" id="deduction_type"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="amt" class="col-sm-12 control-label">Amount*</label>
+							<div class="col-sm-12">
+								<div class="values" id="amt"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="period" class="col-sm-12 control-label">Period*</label>
+							<div class="col-sm-12">
+								<div class="values" id="period"></div>
+							</div>
+						</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+						<button onclick="$('#editDeductionMaster').modal('show');$('#previewDeductionMaster').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- end create modal -->
 	
 	<!-- start create modal -->
 	<div id="editDeductionMaster" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -307,6 +352,7 @@
 				hhh += "<option value='"+magic[i].id+"'>"+magic[i].text+"</option>";
 			}
 			$("#editDeductionMaster #employee_id").html(hhh);
+			$('#editDeductionMaster input#employee_name').val($("#editDeductionMaster #employee_id option:selected").text());
 			$(".preloader").fadeOut();
 		});
 	}
@@ -324,6 +370,7 @@
 		.done(function(json) {
 			if(json == "Unable to proceed insufficient account level!") {
 				swal("Error!", json, "error"); 
+				alert(json);
 				return false;
 			}
 			var obj = JSON.parse(json);
@@ -336,7 +383,12 @@
 			$('#editDeductionMaster input#amt').val(obj[0].amt);
 			$('#editDeductionMaster input#period').val(obj[0].period);
 			$('#editDeductionMaster input#admin_id').val(obj[0].created_by);
-			$("#editDeductionMaster").modal('show');
+			$('#previewDeductionMaster div#employee_name').text(obj[0].employee_name);
+			$('#previewDeductionMaster div#deduction_type').text(obj[0].deduction_type);
+			$('#previewDeductionMaster div#amt').text(obj[0].amt);
+			$('#previewDeductionMaster div#period').text(obj[0].period);
+			$('#previewDeductionMaster div#admin_id').text(obj[0].created_by);
+			$("#previewDeductionMaster").modal('show');
 		});
 	}
 	

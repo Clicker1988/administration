@@ -253,7 +253,7 @@ class Admin_controller extends CI_Controller {
 				$html .= "<td>".$row->level."</td>";
 				$html .= "<td>".$row->date_created."</td>";
 				$html .= "<td>
-							<button data-toggle='tooltip' title='Edit Record'  type='button' onclick=\"fneditAdminList('".$row->id."');\" class='btn btn-info'><i class='fa fa-edit'></i></button>
+							<button data-toggle='tooltip' title='View Record'  type='button' onclick=\"fneditAdminList('".$row->id."');\" class='btn btn-info'><i class='fa fa-desktop'></i></button>
 							<button data-toggle='tooltip' title='Delete Record' type='button' onclick=\"fndeleteAdminList('".$row->id."');\" class='btn btn-warning'><i class='fa fa-eraser'></i></button>
 						  </td>";
 			}

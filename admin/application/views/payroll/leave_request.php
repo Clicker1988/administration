@@ -130,6 +130,57 @@
 		</div>
 	</div>
 	<!-- end create modal -->
+	<style>
+		#previewLeaveReq .values { border-bottom:#6BB9F0 solid 2px;padding:5px }
+	</style>
+	<!-- start create modal -->
+	<div id="previewLeaveReq" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Leave Request</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+						<div class="form-group row">
+							<label for="employee_id" class="col-sm-12 control-label">Employee</label>
+							<div class="col-sm-12">
+								<div class="values" id="employee_id"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="date_from" class="col-sm-12 control-label">Date From</label>
+							<div class="col-sm-12">
+								<div class="values" id="date_from"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="date_to" class="col-sm-12 control-label">Date To</label>
+							<div class="col-sm-12">
+								<div class="values" id="date_to"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="leave_type" class="col-sm-12 control-label">Leave Type</label>
+							<div class="col-sm-12">
+								<div class="values" id="leave_type"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="reason" class="col-sm-12 control-label">Reason</label>
+							<div class="col-sm-12">
+								<div class="values" id="reason"></div>
+							</div>
+						</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+						<button onclick="$('#editLeaveReq').modal('show');$('#previewLeaveReq').modal('hide');" class="btn btn-danger waves-effect waves-light">Edit</button>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- end create modal -->
 	
 	<!-- start create modal -->
 	<div id="editLeaveReq" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -293,6 +344,9 @@
 				hhh += "<option value='"+magic[i].id+"'>"+magic[i].text+"</option>";
 			}
 			$("#editLeaveReq #employee_id").html(hhh);
+			
+			$('#previewLeaveReq div#employee_id').text($("#editLeaveReq #employee_id option:selected").text());
+			$('#editLeaveReq input#employee_name').val($("#editLeaveReq #employee_id option:selected").text());
 			$(".preloader").fadeOut();
 		});
 	}
@@ -321,7 +375,12 @@
 			$('#editLeaveReq input#date_to').val(obj[0].date_to);
 			$('#editLeaveReq select#leave_type').val(obj[0].leave_type);
 			$('#editLeaveReq input#reason').val(obj[0].reason);
-			$("#editLeaveReq").modal('show');
+			//$('#editLeaveReq input#employee_name').val($("#editLeaveReq #employee_id option:selected").text());
+			$('#previewLeaveReq div#date_from').text(obj[0].date_from);
+			$('#previewLeaveReq div#date_to').text(obj[0].date_to);
+			$('#previewLeaveReq div#leave_type').text(obj[0].leave_type);
+			$('#previewLeaveReq div#reason').text(obj[0].reason);
+			$("#previewLeaveReq").modal('show');
 		});
 	}
 	
