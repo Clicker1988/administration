@@ -190,6 +190,31 @@ class Main_controller extends CI_Controller {
 		}
 	}
 	
+	public function asset($module = '',$id = '') {
+		if($this->session->userdata('adminid') == "") {
+			redirect(base_url("user/login"));
+		}
+		
+		if($module == "asset_manager") {
+			$data['module'] = "asset/asset_manager";
+			$this->load->view('main',$data);
+		}
+		elseif($module == "asset_locator"){
+			$data['module'] = "asset/asset_locator";
+			$this->load->view('main',$data);
+		}
+		elseif($module == "asset_dashboard"){
+			$data['module'] = "asset/asset_dashboard";
+			$this->load->view('main',$data);
+		}
+		elseif($module == "asset_maintenance"){
+			$data['module'] = "asset/asset_maintenance";
+			$this->load->view('main',$data);
+		}
+	}
+	
+	
+	
 	public function redirector($path,$flashmsg,$flashmsgtype) {
 		if($flashmsgtype == "error") {
 			$toast = "$.toast({

@@ -154,7 +154,10 @@
 	}
 	
 	function showInMap(map) {
-		var url = "https://www.google.com/maps/embed/v1/search?key=AIzaSyDiiBE86xJkfFADJnCE4jZfwCu2nn30IOI&q=";
+		var mojokey = "AIzaSyBgdwfZSVM-XkwgcnoJMr-bmWPlEhVxbpE";
+		var oldkey = "AIzaSyDiiBE86xJkfFADJnCE4jZfwCu2nn30IOI";
+		
+		var url = "https://www.google.com/maps/embed/v1/search?key="+ mojokey +"&q=";
 		url = url + map + "&zoom=18";
 		$("#markermap").attr('src',url);
 		$("#showLocation").modal('show');

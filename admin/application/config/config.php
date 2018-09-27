@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['base_url'] = 'https://steve-unified.appspot.com/';
+//$config['base_url'] = 'https://steve-unified.appspot.com/';
+$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/admin';
 
 $config['index_page'] = 'index.php';
 
