@@ -205,6 +205,14 @@
 								<li><a href="<?php echo base_url("infokit/topic"); ?>">Topics</a></li>
 							</ul>
 						</li>
+						<li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-apps"></i><span class="hide-menu">ASSET MANAGEMENT</span></a>
+							<ul aria-expanded="false" class="collapse">
+								<li><a href="<?php echo base_url("asset/asset_dashboard"); ?>">Assets Dashboard</a></li>
+								<li><a href="<?php echo base_url("asset/asset_manager"); ?>">Assets List</a></li>
+								<li><a href="<?php echo base_url("asset/asset_locator"); ?>">Asset Locator</a></li>
+								<li><a href="<?php echo base_url("asset/asset_maintenance"); ?>">Maintenance and Repair</a></li>
+							</ul>
+						</li>
 					</ul>
                 </nav>
 			</div>

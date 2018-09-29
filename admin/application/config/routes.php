@@ -37,6 +37,12 @@ $route['infokit/(:any)']				= "main_controller/infokit/$1";
 $route['infokit/crud/(:any)/(:any)']	= "infokit_controller/crud/$1/$2";
 $route['infokit/prepupdate/(:any)']		= "infokit_controller/prep_update/$1";
 
+//Asset Router
+$route['asset/(:any)/(:num)']			= "main_controller/asset/$1/$2";
+$route['asset/(:any)']					= "main_controller/asset/$1";
+$route['asset/crud/(:any)/(:any)']		= "asset_controller/crud/$1/$2";
+$route['asset/prepupdate/(:any)']		= "asset_controller/prep_update/$1";
+
 //Estimation Router
 $route['estimation/(:any)']					= "main_controller/estimation/$1";
 $route['estimation/(:any)/(:num)']			= "main_controller/estimation/$1/$2";
